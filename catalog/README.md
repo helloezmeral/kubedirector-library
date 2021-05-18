@@ -5,7 +5,7 @@
 | cr-app-cenz1234-1.1.json | Sample Flask App | [Repo]() |
 | cr-app-codeserver011-0.011.json | code server | [Repo]() |
 | cr-app-covidhk-v1.0-1.0.json | Sample Dash App with COVID19HK data | [Repo]() |
-| cr-app-cenz1234-1.1.json | Sample Flask App | [Repo]() |
+| cr-app-fastapi-hellloworld-0.01.json | Sample Flask App | [Repo]() |
 
 # How to use
 ```bash
