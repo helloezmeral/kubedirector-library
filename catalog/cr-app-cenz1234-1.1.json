@@ -1,0 +1,57 @@
+{
+  "apiVersion": "kubedirector.hpe.com/v1beta1",
+  "kind": "KubeDirectorApp",
+  "metadata": {
+    "name": "cenz1234"
+  },
+  "spec": {
+    "label": {
+      "name": "cenz-tools",
+      "description": "myappDescription"
+    },
+    "distroID": "cenz1234",
+    "version": "1.1",
+    "configSchemaVersion": 8,
+    "config": {
+      "roleServices": [
+        {
+          "roleID": "myhttp",
+          "serviceIDs": [
+            "myhttp"
+          ]
+        }
+      ],
+      "selectedRoles": [
+        "myhttp"
+      ]
+    },
+    "services": [
+      {
+        "id": "myhttp",
+        "label": {
+          "name": "myhttp"
+        },
+        "endpoint": {
+          "port": 5000,
+          "isDashboard": true,
+          "hasAuthToken": false,
+          "urlScheme": "http"
+        }
+      }
+    ],
+    "roles": [
+      {
+        "id": "myhttp",
+        "cardinality": "1+",
+        "minResources": {
+          "memory": "256Mi",
+          "cpu": "1"
+        },
+        "imageRepoTag": "cenzwong/flask-tools:latest"
+      }
+    ],
+    "capabilities": [],
+    "systemdRequired": false,
+    "logoURL": "https://cenzwong.github.io/src/LoGo.png"
+  }
+}
