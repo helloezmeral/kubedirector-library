@@ -6,7 +6,5 @@
 
 # How to use
 ```bash
-wget 
-kubectl apply -f cr-app-cenz1234-1.1.json
-
+kubectl apply -f https://raw.githubusercontent.com/helloezmeral/kubedirector-library/main/catalog/cr-app-cenz1234-1.1.json
 ```
