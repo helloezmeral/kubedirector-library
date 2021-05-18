@@ -1,0 +1,56 @@
+{
+  "apiVersion": "kubedirector.hpe.com/v1beta1",
+  "kind": "KubeDirectorApp",
+  "metadata": {
+    "name": "covidhk-v1.0"
+  },
+  "spec": {
+    "label": {
+      "name": "covidhk",
+      "description": "covidhk"
+    },
+    "distroID": "covidhk-v1.0",
+    "version": "1.0",
+    "configSchemaVersion": 8,
+    "config": {
+      "roleServices": [
+        {
+          "roleID": "gunicorn",
+          "serviceIDs": [
+            "ui"
+          ]
+        }
+      ],
+      "selectedRoles": [
+        "gunicorn"
+      ]
+    },
+    "services": [
+      {
+        "id": "ui",
+        "label": {
+          "name": "ui"
+        },
+        "endpoint": {
+          "port": 80,
+          "isDashboard": true,
+          "hasAuthToken": false,
+          "urlScheme": "/"
+        }
+      }
+    ],
+    "roles": [
+      {
+        "id": "gunicorn",
+        "cardinality": "1+",
+        "minResources": {
+          "memory": "2Mi",
+          "cpu": "1"
+        }
+      }
+    ],
+    "defaultImageRepoTag": "cenzwong/covidhk",
+    "capabilities": [],
+    "systemdRequired": true
+  }
+}
