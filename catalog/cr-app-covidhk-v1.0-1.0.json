@@ -35,7 +35,8 @@
           "port": 80,
           "isDashboard": true,
           "hasAuthToken": false,
-          "urlScheme": "/"
+          "urlScheme": "http",
+          "path": "/"
         }
       }
     ],
