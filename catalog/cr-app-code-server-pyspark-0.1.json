@@ -1,0 +1,57 @@
+{
+  "apiVersion": "kubedirector.hpe.com/v1beta1",
+  "kind": "KubeDirectorApp",
+  "metadata": {
+    "name": "code-server-pyspark"
+  },
+  "spec": {
+    "label": {
+      "name": "code-server-pyspark",
+      "description": "code-server-enable-pyspark"
+    },
+    "distroID": "code-server-pyspark",
+    "version": "0.1",
+    "configSchemaVersion": 8,
+    "config": {
+      "roleServices": [
+        {
+          "roleID": "code-server",
+          "serviceIDs": [
+            "code-server"
+          ]
+        }
+      ],
+      "selectedRoles": [
+        "code-server"
+      ]
+    },
+    "services": [
+      {
+        "id": "code-server",
+        "label": {
+          "name": "code-server"
+        },
+        "endpoint": {
+          "port": 8080,
+          "isDashboard": true,
+          "hasAuthToken": false,
+          "urlScheme": "http",
+          "path": "/"
+        }
+      }
+    ],
+    "roles": [
+      {
+        "id": "code-server",
+        "cardinality": "1+",
+        "minResources": {
+          "memory": "2Mi",
+          "cpu": "1"
+        },
+        "imageRepoTag": "helloezmeral/code-server-pyspark:latest"
+      }
+    ],
+    "capabilities": [],
+    "systemdRequired": true
+  }
+}
