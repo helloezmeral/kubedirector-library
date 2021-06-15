@@ -1,0 +1,57 @@
+{
+  "apiVersion": "kubedirector.hpe.com/v1beta1",
+  "kind": "KubeDirectorApp",
+  "metadata": {
+    "name": "dash-util-fastapi"
+  },
+  "spec": {
+    "label": {
+      "name": "dash-util-fastapi",
+      "description": "GL20-CPU_percentage"
+    },
+    "distroID": "dash-util-fastapi",
+    "version": "1",
+    "configSchemaVersion": 8,
+    "config": {
+      "roleServices": [
+        {
+          "roleID": "web",
+          "serviceIDs": [
+            "webui"
+          ]
+        }
+      ],
+      "selectedRoles": [
+        "web"
+      ]
+    },
+    "services": [
+      {
+        "id": "webui",
+        "label": {
+          "name": "webui"
+        },
+        "endpoint": {
+          "port": 80,
+          "isDashboard": true,
+          "hasAuthToken": false,
+          "urlScheme": "http",
+          "path": "/"
+        }
+      }
+    ],
+    "roles": [
+      {
+        "id": "web",
+        "cardinality": "1+",
+        "minResources": {
+          "memory": "1Mi",
+          "cpu": "1"
+        },
+        "imageRepoTag": "helloezmeral/dash-util-fastapi:latest"
+      }
+    ],
+    "capabilities": [],
+    "systemdRequired": true
+  }
+}
